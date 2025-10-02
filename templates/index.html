@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Real-ESRGAN Image Upscaler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <main>
+      <div class="left-panel">
+        <div class="header">
+          <h1>AI Image Upscaler</h1>
+          <p class="subtitle">Enhance image quality with Real-ESRGAN technology</p>
+        </div>
+
+        <div class="upload-container">
+          <label class="dropzone" id="dropzone">
+            <input id="fileInput" type="file" accept="image/*" />
+            <div class="dropzone-icon">📁</div>
+            <div class="dropzone-text">Drag & drop your image here</div>
+            <div class="dropzone-hint">or click to browse files</div>
+          </label>
+
+          <div class="file-info" id="fileInfo">
+            <img id="filePreview" class="file-preview" alt="File preview" style="display: none;" />
+            <div class="file-details">
+              <div class="file-name" id="fileName"></div>\
+              
+              <div class="file-size" id="fileSize"></div>
+            </div>
+            <button class="remove-file" id="removeFile">✕</button>
+          </div>
+        </div>
+
+        <button id="processBtn" disabled>
+          <span class="button-text">Upscale Image (4×)</span>
+          <span class="button-icon">🚀</span>
+          <div class="button-loader"></div>
+        </button>
+
+        <div class="status" id="status"></div>
+
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-text">
+              <div class="feature-title">4× Upscaling</div>
+              <div class="feature-desc">Increase resolution 4 times</div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🎨</div>
+            <div class="feature-text">
+              <div class="feature-title">Quality Enhancement</div>
+              <div class="feature-desc">AI-powered detail restoration</div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <div class="feature-text">
+              <div class="feature-title">Privacy First</div>
+              <div class="feature-desc">Files processed securely</div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📱</div>
+            <div class="feature-text">
+              <div class="feature-title">All Formats</div>
+              <div class="feature-desc">JPG, PNG, WebP & more</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="result-container" id="resultContainer" style="display: none;">
+          <h3>Upscaled Image</h3>
+          <img id="resultImage" class="result-image" />
+          <button id="downloadBtn" class="download-btn">
+            <span class="button-text">Download Upscaled Image</span>
+            <span class="button-icon">⬇️</span>
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
